@@ -1,5 +1,7 @@
 # Sliding-Window Genome Enrichment (DAVID)
 
+[![DOI](https://zenodo.org/badge/1049783566.svg)](https://doi.org/10.5281/zenodo.17047875)
+
 This repository provides a Python script to perform **sliding-window functional enrichment** along a genome using the **[DAVID Bioinformatics Web Service](https://david.ncifcrf.gov/)**.  
 The script identifies enriched functional clusters by scanning consecutive windows of genes (in genome order) and retrieving term cluster reports from DAVID.
 
