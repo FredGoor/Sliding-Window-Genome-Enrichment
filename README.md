@@ -5,7 +5,7 @@ The script identifies enriched functional clusters by scanning consecutive windo
 
 ---
 
-## ✨ Features
+## Features
 - Sliding-window scan of genome-ordered gene lists  
 - Queries DAVID’s SOAP API for **functional term clusters**  
 - Generates:
@@ -15,82 +15,105 @@ The script identifies enriched functional clusters by scanning consecutive windo
 
 ---
 
-## 📦 Requirements
-Python ≥ 3.9 with the following packages: pandas, numpy, matplotlib, suds-py3, openpyxl, tkinter
+## Requirements
 
-📥 Input
+Python ≥ 3.9 with the following packages:
 
-A text file containing Entrez Gene IDs (one per line), ordered according to their genomic positions.
+```
+pandas
+numpy
+matplotlib
+suds-py3
+openpyxl
+tkinter   # included in most Python installations
+```
 
-▶️ Usage
+Install with pip:
 
-Run the script (from Spyder or terminal). You will be prompted to:
+```bash
+pip install pandas numpy matplotlib suds-py3 openpyxl
+```
 
-Select the input file (gene IDs)
+Or create a conda environment:
 
-Select the output folder (results)
+```bash
+conda create -n swige python=3.10 pandas numpy matplotlib openpyxl -y
+conda activate swige
+pip install suds-py3
+```
 
-Enter a species short name (used in file naming)
+---
 
-📤 Output
+## Input
 
-Excel summary
+A text file containing **Entrez Gene IDs** (one per line), ordered according to their genomic positions.
 
-<species>_DAVID_enrichment_<date>.xlsx
+---
 
-All Results sheet: full summary of every window
+## Usage
 
-Filtered (Pval < 0.01) sheet: clusters passing the significance filter
+Run the script (from Spyder or a terminal). You will be prompted to:
 
-Per-window reports
+1. Select the **input file** (gene IDs)  
+2. Select the **output folder** (results)  
+3. Enter a **species short name** (used in file naming)  
 
-<window>_fullReport.txt
+> **Note:** The script uses Tkinter file dialogs and the DAVID SOAP API. Make sure your network allows outbound HTTPS access to DAVID.
 
-Figures
+---
 
-enrichment_scores.jpg (cluster 1 enrichment scores)
+## Output
 
-min_pvalues_log10.jpg (−log10 p-values for cluster 1)
+- **Excel summary**
+  - `<species>_DAVID_enrichment_<date>.xlsx`
+    - *All Results* sheet: full summary of every window  
+    - *Filtered (Pval < 0.01)* sheet: clusters passing the significance filter
+- **Per-window reports**
+  - `<window>_fullReport.txt`
+- **Figures**
+  - `enrichment_scores.jpg` (cluster 1 enrichment scores)  
+  - `min_pvalues_log10.jpg` (−log10 p-values for cluster 1)
 
-⚙️ User Settings
+---
+
+## User Settings
 
 At the top of the script, you can adjust:
 
-WINDOW_SIZE – number of genes per window (default: 100)
+- `WINDOW_SIZE` – number of genes per window (default: 100)  
+- `STEP_SIZE` – step size between windows (default: 25)  
+- `EMAIL` – your registered DAVID email  
+- `WAIT_TIME` – delay (s) between DAVID queries (default: 10)  
+- `DAVID_WSDL_URL` and `DAVID_ENDPOINT` – DAVID web service URLs  
 
-STEP_SIZE – step size between windows (default: 25)
+---
 
-EMAIL – your registered DAVID email
+## Limitations
 
-WAIT_TIME – delay (s) between DAVID queries (default: 10)
+- Dependent on DAVID service availability and stability  
+- SOAP API may throttle or fail under heavy use  
+- Requires Entrez Gene IDs as input (not gene symbols)  
 
-DAVID_WSDL_URL and DAVID_ENDPOINT – DAVID web service URLs
+---
 
-⚠️ Limitations
+## Example
 
-Dependent on DAVID service availability and stability
+See the `Example/` folder for:
 
-SOAP API may throttle or fail under heavy use
+- `example_genes.txt` – toy dataset of ordered Entrez IDs  
+- Example output files (Excel + plots)  
 
-Requires Entrez Gene IDs as input (not gene symbols)
+---
 
-📂 Example
-
-See the Example/ folder for:
-
-example_genes.txt – toy dataset of ordered Entrez IDs
-
-Example output files (Excel + plots)
-
-📖 Citation
+## Citation
 
 If you use this script in your research, please cite:
 
-The associated publication (once available)
+- The associated publication (once available)  
+- This repository via its Zenodo DOI: **[DOI link here after Zenodo upload]**
 
-This repository via its Zenodo DOI: [DOI link here after Zenodo upload]
+---
 
-📜 License
+## License
 
-This project is released under the MIT License
-.
+This project is released under the [MIT License](LICENSE).
