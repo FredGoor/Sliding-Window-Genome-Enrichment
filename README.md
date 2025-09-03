@@ -112,7 +112,7 @@ See the `Example/` folder for:
 If you use this script in your research, please cite:
 
 - The associated publication (once available)  
-- This repository via its Zenodo DOI: **[DOI link here after Zenodo upload]**
+- This repository via its Zenodo DOI: **[https://doi.org/10.5281/zenodo.17047875]**
 
 ---
 
