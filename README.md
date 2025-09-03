@@ -16,19 +16,7 @@ The script identifies enriched functional clusters by scanning consecutive windo
 ---
 
 ## 📦 Requirements
-Python ≥ 3.9 with the following packages:
-
-pandas
-numpy
-matplotlib
-suds-py3
-openpyxl
-tkinter # included in most Python installations
-
-
-Install with:
-```bash
-pip install pandas numpy matplotlib suds-py3 openpyxl
+Python ≥ 3.9 with the following packages: pandas, numpy, matplotlib, suds-py3, openpyxl, tkinter
 
 📥 Input
 
@@ -101,3 +89,8 @@ If you use this script in your research, please cite:
 The associated publication (once available)
 
 This repository via its Zenodo DOI: [DOI link here after Zenodo upload]
+
+📜 License
+
+This project is released under the MIT License
+.
